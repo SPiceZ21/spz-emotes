@@ -17,7 +17,6 @@ client_scripts {
   'client/play.lua',
   'client/shared.lua',
   'client/menu.lua',
-  'client/recorder.lua',
 }
 
 server_scripts {
@@ -31,7 +30,6 @@ files {
   'ui/style.css',
   'ui/app.js',
   'ui/fonts/*.ttf',
-  'ui/previews/*.jpg',
 }
 
 dependencies {

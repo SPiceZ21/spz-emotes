@@ -9,6 +9,3 @@ Config.Command    = "emotes" -- /emotes opens the menu; /e <name> plays one dire
 -- and how long they have to accept.
 Config.SharedRange   = 3.0
 Config.SharedTimeout = 12     -- seconds
-
--- Who may run /emoterecord (renders the preview thumbnails into ui/previews).
-Config.RecordAce = "spz.admin"

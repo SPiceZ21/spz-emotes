@@ -42,7 +42,7 @@ function Emote.stop(quiet)
     if not quiet then TriggerEvent("spz-emotes:stopped") end
 end
 
--- Plays a clip on a ped (used by the shared emotes and the recorder too).
+-- Plays a clip on a ped (used by the shared emotes too).
 function Emote.playClip(ped, dict, anim, flag)
     if not loadDict(dict) then return false end
     TaskPlayAnim(ped, dict, anim, 4.0, -4.0, -1, flag or 0, 0.0, false, false, false)

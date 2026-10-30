@@ -35,10 +35,6 @@ function card(e) {
 
   const thumb = document.createElement('div')
   thumb.className = 'thumb'
-  // Preview from /emoterecord when it exists; otherwise the first letter.
-  const img = new Image()
-  img.onload = () => { thumb.style.backgroundImage = `url(${img.src})`; thumb.innerHTML = '' }
-  img.src = `previews/${e.key}.jpg`
   thumb.innerHTML = `<span class="glyph">${e.label.charAt(0)}</span>`
 
   const meta = document.createElement('div')
