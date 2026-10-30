@@ -36,6 +36,9 @@ local function openMenu()
         categories = Categories, emotes = list(), favs = loadFavs(),
         theme = ok and theme or nil,
         playing = Emote.current and Emote.current.label or nil,
+        -- Which preview set to show (ui/previews/<sex>/); same idea as
+        -- fivem-appearance's per-sex thumbnails.
+        sex = GetEntityModel(PlayerPedId()) == `mp_f_freemode_01` and "female" or "male",
         cancelKey = Config.CancelKey,
     })
     SetNuiFocus(true, true)

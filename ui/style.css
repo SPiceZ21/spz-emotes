@@ -65,6 +65,7 @@ h1 { font-family: var(--font-primary); font-weight: 700; font-size: 18px; letter
 .card:hover { border-color: var(--gray-500); }
 .card.playing { border-color: var(--accent); }
 .thumb { height: 92px; background: #111 center / cover no-repeat; display: flex; align-items: center; justify-content: center; }
+.thumb img { height: 100%; width: auto; image-rendering: auto; }
 .thumb .glyph { font-family: var(--font-primary); font-weight: 700; font-size: 26px; color: var(--gray-700); }
 .meta { padding: 8px 10px 9px; }
 .name { font-size: 13px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

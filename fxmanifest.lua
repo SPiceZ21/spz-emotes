@@ -30,6 +30,8 @@ files {
   'ui/style.css',
   'ui/app.js',
   'ui/fonts/*.ttf',
+  -- Animated previews: ui/previews/<male|female>/<emote key>.webp
+  'ui/previews/**/*.webp',
 }
 
 dependencies {

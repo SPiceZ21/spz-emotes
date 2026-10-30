@@ -4,7 +4,7 @@ const RES = 'spz-emotes'
 const post = (name, body) =>
   fetch(`https://${RES}/${name}`, { method: 'POST', body: JSON.stringify(body || {}) }).catch(() => {})
 
-let cats = [], emotes = [], favs = [], cat = 'dances', playing = null
+let cats = [], emotes = [], favs = [], cat = 'dances', playing = null, sex = 'male'
 
 function applyTheme(t) {
   if (t && t.accent) document.documentElement.style.setProperty('--accent', t.accent)
@@ -36,6 +36,17 @@ function card(e) {
   const thumb = document.createElement('div')
   thumb.className = 'thumb'
   thumb.innerHTML = `<span class="glyph">${e.label.charAt(0)}</span>`
+  // Animated preview (ui/previews/<sex>/<key>.webp), the other sex's render if
+  // this one has none, otherwise the letter stays.
+  const other = sex === 'female' ? 'male' : 'female'
+  const tryLoad = (list) => {
+    if (!list.length) return
+    const img = new Image()
+    img.onload = () => { thumb.innerHTML = ''; thumb.appendChild(img) }
+    img.onerror = () => tryLoad(list.slice(1))
+    img.src = list[0]
+  }
+  tryLoad([`previews/${sex}/${e.key}.webp`, `previews/${other}/${e.key}.webp`])
 
   const meta = document.createElement('div')
   meta.className = 'meta'
@@ -87,6 +98,7 @@ function open(d) {
   cats = d.categories || []
   emotes = d.emotes || []
   favs = d.favs || []
+  sex = d.sex === 'female' ? 'female' : 'male'
   if (!cats.find((c) => c.id === cat)) cat = 'dances'
   if (cat === 'fav' && !favs.length) cat = 'dances'
   applyTheme(d.theme)
